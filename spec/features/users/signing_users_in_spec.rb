@@ -6,18 +6,18 @@ RSpec.feature "Users siginin" do
   end
 
   scenario "with valid credentials" do
-    visit "/"
-
-    click_link "Sign in"
-
-    fill_in "Email", with: @hannah.email
-
-    fill_in "Password", with: @hannah.password
-
-    click_button "Log in"
+    sign_in_user(@hannah)
 
     expect(page)
       .to have_content("Signed in successfully")
       .and have_content("Signed in as #{@hannah.email}")
+  end
+
+  def sign_in_user(user)
+    visit "/"
+    click_link "Sign in"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
   end
 end
