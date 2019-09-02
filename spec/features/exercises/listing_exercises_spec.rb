@@ -12,6 +12,10 @@ RSpec.feature "Listing Exercises" do
     @e2 = @hannah.exercises.create(duration_in_min: 55,
                                     workout: "Weight lifting",
                                     workout_date: 2.days.ago)
+
+    @e3 = @hannah.exercises.create(duration_in_min: 35,
+                                      workout: "On treadmill",
+                                      workout_date: 8.days.ago)
   end
 
   scenario "shows user's workout for last 7 days" do
@@ -26,9 +30,9 @@ RSpec.feature "Listing Exercises" do
       .and have_content(@e2.duration_in_min)
       .and have_content(@e2.workout)
       .and have_content(@e2.workout_date)
-      # .and have_no_content(@e3.duration_in_min)
-      # .and have_no_content(@e3.workout)
-      # .and have_no_content(@e3.workout_date)
+      .and have_no_content(@e3.duration_in_min)
+      .and have_no_content(@e3.workout)
+      .and have_no_content(@e3.workout_date)
 
   end
 
