@@ -6,7 +6,7 @@ RSpec.feature "Creating Exercise" do
     login_as(@hannah)
     visit "/"
     click_link "My Lounge"
-    click_link "New Exercise"
+    click_link "New Workout"
   end
 
   scenario "with valid inputs" do
@@ -16,7 +16,7 @@ RSpec.feature "Creating Exercise" do
     fill_in "Duration", with: 70
     fill_in "Workout Details", with: "Weight lifting"
     fill_in "Activity Date", with: "2019-09-02"
-    click_button "Create Exercise"
+    click_button "Create Workout"
 
     expect(page).to have_content("Exercise has been created")
 
@@ -32,7 +32,7 @@ RSpec.feature "Creating Exercise" do
     fill_in "Duration", with: ""
     fill_in "Workout Details", with: ""
     fill_in "Activity Date", with: ""
-    click_button "Create Exercise"
+    click_button "Create Workout"
 
     expect(page)
       .to have_content("Exercise has not been created")
