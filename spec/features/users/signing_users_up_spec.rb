@@ -8,6 +8,10 @@ RSpec.feature "Users singup" do
 
     click_link "Sign up"
 
+    fill_in "First name", with: "Hannah"
+
+    fill_in "Last name", with: "Bird"
+
     fill_in "Email", with: "hannah@example.com"
 
     fill_in "Password", with: "password"
@@ -16,8 +20,10 @@ RSpec.feature "Users singup" do
 
     click_button "Sign up"
 
-    expect(page)
-      .to have_content("You have signed up successfully.")
+    expect(page).to have_content("You have signed up successfully.")
 
+    visit '/'
+
+    expect(page).to have_content("Hannah Bird")
   end
 end
