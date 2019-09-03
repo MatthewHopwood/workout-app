@@ -15,7 +15,7 @@ RSpec.feature "Deleting Exercise" do
 
     click_link "My Lounge"
 
-    path = "/users#{@owner.id}/exercises/#{@owner_exercise.id}"
+    path = "/users/#{@owner.id}/exercises/#{@owner_exercise.id}"
     link = "//a[contains(@href,\'#{path}\') and .//text()='Delete']"
 
     find(:xpath, link).click
