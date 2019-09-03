@@ -32,6 +32,7 @@ gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'devise'
 gem 'd3-rails'
+gem 'will_paginate-bootstrap'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
