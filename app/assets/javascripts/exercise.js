@@ -3,21 +3,19 @@ $(document).ready(function() {
     $('#exercise_workout_date').datepicker({format: 'yyyy-mm-dd'});
   });
 
-  var regex = /\/users\/\d+\/exercises$|\/friendships\/d+$/i;
+  var regex = /\/users\/\d+\/exercises$|\/friendships\/\d+$/i;
   if($(location).attr('pathname').match(regex)) {
     drawChart();
   }
 });
 
 var drawChart = function() {
+
   var margin = { top: 100, right: 20, bottom: 100, left: 50 },
       width  = 600 - margin.left - margin.right,
       height = 450 - margin.top - margin.bottom;
-  var JSONData = $("#chart").data("workouts");
 
-  if (!JSONData) {
-    return;
-  }
+  var JSONData = $("#chart").data("workouts");
 
   var data = JSONData.slice()
 
@@ -93,5 +91,5 @@ var drawChart = function() {
       .style("text-anchor", "middle")
       .style("font-size", "18px")
       .style("text-decoration", "underline")
-      .text("Workout Duration vs Workout Date")
+      .text("Workout duration vs Workout date")
 };
